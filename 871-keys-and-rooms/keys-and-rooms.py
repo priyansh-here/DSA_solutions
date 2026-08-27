@@ -1,12 +1,11 @@
 class Solution:
     def canVisitAllRooms(self, rooms):
-        seen = set()
-
+        visited = set()
         def dfs(room):
-            seen.add(room)
+            visited.add(room)
             for key in rooms[room]:
-                if key not in seen:
+                if key not in visited:
                     dfs(key)
-
         dfs(0)
-        return len(seen) == len(rooms)
+
+        return len(visited) == len(rooms)
